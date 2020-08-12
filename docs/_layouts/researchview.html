@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<head>
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel='stylesheet' id='kleo-google-fonts-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300%2C400&#038;ver=5.0.10' type='text/css' media='all' />
+  <style>
+    body {
+      font-family: "Open Sans", Arial, Helvetica, sans-serif;
+      color: rgb(102,102,102);
+    }
+    table.toolview td {
+      border-bottom: 1px solid #6EBBD5;
+    }
+
+    table.toolview td.namefield {
+      white-space: nowrap;
+    }
+
+    table.toolview td.colored {
+      background-repeat: no-repeat;
+      background-position: center;
+      text-indent: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    table.toolview td.green {
+      background-image: url('https://brightspace-support.tudelft.nl/wp-content/uploads/2020/05/green2.png');
+    }
+
+    table.toolview td.grey, table.toolview td.gray {
+      background-image: url('https://brightspace-support.tudelft.nl/wp-content/uploads/2020/05/grey2.png');
+    }
+
+    table.toolview td.red {
+      background-image: url('https://brightspace-support.tudelft.nl/wp-content/uploads/2020/05/red2.png');
+    }
+
+    table.toolview td.yellow {
+      background-image: url('https://brightspace-support.tudelft.nl/wp-content/uploads/2020/05/yellow2.png');
+    }
+
+    table.toolview td p:first-child {
+      margin-top: 0px;
+    }
+
+    table.toolview td p:last-child {
+      margin-bottom: 0px;
+    }
+
+    table.toolview td.category {
+      background-color: #e7f3fe;
+      border-left: 6px solid #2196F3;
+      padding-left: 10px;
+      margin-bottom: 15px;
+    }
+
+    div.content_wrapper {
+      width: 750px;
+    }
+
+    div.research_tools_content h1 {
+      color: #1e73be !important;
+      font-family: Open Sans;
+      margin-top: 12pt;
+      font-weight: 300;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="research_tools_content content_wrapper">
+    {{ content }}
+  </div>
+<p/>
+
+{% capture category_list -%}
+  {% for tool in site.research_tools -%}
+    {{tool.category|strip}}
+    {%- if forloop.last == false %}::{% endif -%}
+  {% endfor -%}
+{% endcapture %}
+
+{% assign full_categories = category_list | split: '::'  %}
+{% assign category_array = full_categories | uniq | sort %}
+
+<div class='content_wrapper'>
+<table class='toolview'>
+  <tr>
+    <td style="border-bottom: 1px solid #6EBBD5;">Tool name</td>
+    <td style="border-bottom: 1px solid #6EBBD5;">Color</td>
+    <td style="border-bottom: 1px solid #6EBBD5;">Remarks</td>
+    </tr>
+    {% for cat in category_array %}
+      <tr>
+        <td class='category' colspan="3">{{ cat }}</td>        
+      </tr>
+      {% for tool in site.research_tools %}
+        {% if tool.category == cat %}
+        <tr>
+          <td class="namefield">{{ tool.name }}</td>
+          <td class="colored {{tool.status | downcase}}">{{tool.status}}</td>
+          <td>{{ tool.content  }}</td>
+        </tr>
+      {% endif %}
+      {% endfor %}
+    {% endfor %}
+</table>
+</div>
+</body>
+</html>
