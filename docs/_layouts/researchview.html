@@ -8,6 +8,7 @@
     body {
       font-family: "Open Sans", Arial, Helvetica, sans-serif;
       color: rgb(102,102,102);
+      font-size: 11pt;
     }
     table.toolview td {
       border-bottom: 1px solid #6EBBD5;
@@ -20,7 +21,6 @@
     table.toolview td.colored {
       background-repeat: no-repeat;
       background-position: center;
-      notext-indent: 100%;
       white-space: nowrap;
       overflow: hidden;
     }
@@ -67,10 +67,6 @@
     @media 
     screen and (max-width: 768px)
      {
-      body {
-        nobackground-color: rgb(149, 149, 233);
-      }
-
       div.content_wrapper {
         width: 100%;
       }
@@ -85,24 +81,24 @@
 		  left: -9999px;
 	  }
 
-      tr { border: 1px solid #ccc; }
 	
 	    td { 
-		    /* Behave  like a "row" */
 		    border: none;
 		    border-bottom: 1px solid #eee; 
 		    position: relative;
-		    padding-left: 20%; 
+		    padding-left: 90px; 
 	    }
 
+      td.namefield {
+        background-color: #e7f3fe;
+        nomargin-left: -10px;    
+      }
+
       td:before { 
-	    	/* Now like a table header */
 		    position: absolute;
-		    notop: 6px;
 		    left: 6px;
-		    width: 20%; 
+		    width: 80px; 
 		    padding-right: 10px; 
-		    white-space: nowrap;
 	    }
 
       td:nth-of-type(1):before { content: "Tool name:"; }
