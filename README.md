@@ -4,7 +4,7 @@ This repository holds an overview of research tools and their status analogous t
 
 ### Website
 
-Changes made to this repository will automatically be incorporated into the website at https://tudelft-innovation.github.io/
+Changes made to this repository will automatically be incorporated into the website at https://tudelft-innovation.github.io/researchtools (actually a whole site is generated, but this is the only page we're interested in for now :-))
 
 
 ### Workflow
