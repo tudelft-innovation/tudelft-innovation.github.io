@@ -1,37 +1,29 @@
-## Welcome to GitHub Pages
+## Research tools repository
 
-You can use the [editor on GitHub](https://github.com/tudelft-innovation/tudelft-innovation.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This repository holds an overview of research tools and their status analogous to [this page](https://brightspace-support.tudelft.nl/educational-tooling/) for educational tools. This is work-in-progress and mostly useful to see how such an overview would look, but also as a test to start creating the actual list. Also this repository is used to test a viable workflow for maintaining the list
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Website
 
-### Markdown
+Changes made to this repository will automatically be incorporated into the website at https://tudelft-innovation.github.io/researchtools (actually a whole site is generated, but this is the only page we're interested in for now :-))
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+### Workflow
 
-# Header 1
-## Header 2
-### Header 3
+A definite workflow has not yet been established. For now you can clone this repository, make your changes, and submit a merge request.
 
-- Bulleted
-- List
+### Adding and editing tools
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+All tools are described by a file in the docs/_research_tools directory. 
+Each file is a jekyll markdown file that needs to contain [front matter](https://jekyllrb.com/docs/front-matter/) describing the name, status and category of the tool. For instance, the markdown file for Dropbox looks like this:
+```
+---
+status: Gray
+name: Dropbox
+category: Collaboration
+---
+Recommended alternatives: M365 OneDrive, Sharepoint, SURFdrive, MS Teams
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+The three dashes serve to distinguish the front-matter variables from the actual text of the description.
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/tudelft-innovation/tudelft-innovation.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+The name of the file is of no consequence, but for sanity's sake please name it the same as the tool that it describes!
