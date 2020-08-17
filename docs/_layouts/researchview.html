@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 <head>
+  <title>Research Tooling</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel='stylesheet' id='kleo-google-fonts-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300%2C400&#038;ver=5.0.10' type='text/css' media='all' />
@@ -155,7 +156,8 @@
             <img class="indicator grey" src='https://brightspace-support.tudelft.nl/wp-content/uploads/2020/05/grey2.png'>
             <img class="indicator yellow" src='https://brightspace-support.tudelft.nl/wp-content/uploads/2020/05/yellow2.png'>
           </td>
-          <td>{{ tool.content  }}</td>
+          {% assign excerpt = tool.content | split: "<!--more-->"%}
+          <td>{{ excerpt[0]  }}</td>
         </tr>
       {% endif %}
       {% endfor %}
